@@ -18,7 +18,7 @@ namespace RestWithASPNETUdemy.Controllers
             _logger = logger;
         }
 
-        [HttpGet("soma/{firstNumber}/{secondNumber}")]
+        [HttpGet("sum/{firstNumber}/{secondNumber}")]
         public IActionResult GetSum(string firstNumber, string secondNumber)
         {
             if(isNumeric(firstNumber) && isNumeric(secondNumber))
@@ -30,8 +30,8 @@ namespace RestWithASPNETUdemy.Controllers
             return BadRequest("Invalid Imput");
         }
 
-        [HttpGet("subtracao/{firstNumber}/{secondNumber}")]
-        public IActionResult GetLes(string firstNumber, string secondNumber)
+        [HttpGet("subtraction/{firstNumber}/{secondNumber}")]
+        public IActionResult GetSubtraction(string firstNumber, string secondNumber)
         {
             if (isNumeric(firstNumber) && isNumeric(secondNumber))
             {
@@ -42,8 +42,8 @@ namespace RestWithASPNETUdemy.Controllers
             return BadRequest("Invalid Imput");
         }
 
-        [HttpGet("divisao/{firstNumber}/{secondNumber}")]
-        public IActionResult GetDiv(string firstNumber, string secondNumber)
+        [HttpGet("division/{firstNumber}/{secondNumber}")]
+        public IActionResult GetDivision(string firstNumber, string secondNumber)
         {
             if (isNumeric(firstNumber) && isNumeric(secondNumber))
             {
@@ -54,12 +54,36 @@ namespace RestWithASPNETUdemy.Controllers
             return BadRequest("Invalid Imput");
         }
 
-        [HttpGet("multiplicacao/{firstNumber}/{secondNumber}")]
-        public IActionResult GetMult(string firstNumber, string secondNumber)
+        [HttpGet("multiplication/{firstNumber}/{secondNumber}")]
+        public IActionResult GetMultiplication(string firstNumber, string secondNumber)
         {
             if (isNumeric(firstNumber) && isNumeric(secondNumber))
             {
                 var value = ConvertToDecimal(firstNumber) * ConvertToDecimal(secondNumber);
+                return Ok(value.ToString());
+            }
+
+            return BadRequest("Invalid Imput");
+        }
+
+        [HttpGet("mean/{firstNumber}/{secondNumber}")]
+        public IActionResult GetMean(string firstNumber, string secondNumber)
+        {
+            if (isNumeric(firstNumber) && isNumeric(secondNumber))
+            {
+                var value = ((ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber)) / 2);
+                return Ok(value.ToString());
+            }
+
+            return BadRequest("Invalid Imput");
+        }
+
+        [HttpGet("square/{firstNumber}")]
+        public IActionResult GetSquareRoot(string firstNumber)
+        {
+            if (isNumeric(firstNumber))
+            {
+                var value = Math.Sqrt((double)ConvertToDecimal(firstNumber));
                 return Ok(value.ToString());
             }
 
