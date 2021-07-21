@@ -44,3 +44,13 @@ F:\Projetos\RestWithASP-NET5Udemy\RestWithASP-NET5Udemy\02_RestWithASPNETUdemy_C
 F:\Projetos\RestWithASP-NET5Udemy\RestWithASP-NET5Udemy\02_RestWithASPNETUdemy_Calculadora\RestWithASPNETUdemy\RestWithASPNETUdemy\obj\Debug\net5.0\ref\RestWithASPNETUdemy.dll
 F:\Projetos\RestWithASP-NET5Udemy\RestWithASP-NET5Udemy\02_RestWithASPNETUdemy_Calculadora\RestWithASPNETUdemy\RestWithASPNETUdemy\obj\Debug\net5.0\RestWithASPNETUdemy.pdb
 F:\Projetos\RestWithASP-NET5Udemy\RestWithASP-NET5Udemy\02_RestWithASPNETUdemy_Calculadora\RestWithASPNETUdemy\RestWithASPNETUdemy\obj\Debug\net5.0\RestWithASPNETUdemy.genruntimeconfig.cache
+F:\Projetos\RestWithASP-NET5Udemy\RestWithASP-NET5Udemy\02_RestWithASPNETUdemy_Calculadora\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+F:\Projetos\RestWithASP-NET5Udemy\RestWithASP-NET5Udemy\02_RestWithASPNETUdemy_Calculadora\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\Projetos\RestWithASP-NET5Udemy\RestWithASP-NET5Udemy\02_RestWithASPNETUdemy_Calculadora\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\Projetos\RestWithASP-NET5Udemy\RestWithASP-NET5Udemy\02_RestWithASPNETUdemy_Calculadora\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+F:\Projetos\RestWithASP-NET5Udemy\RestWithASP-NET5Udemy\02_RestWithASPNETUdemy_Calculadora\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\MySqlConnector.dll
+F:\Projetos\RestWithASP-NET5Udemy\RestWithASP-NET5Udemy\02_RestWithASPNETUdemy_Calculadora\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
+F:\Projetos\RestWithASP-NET5Udemy\RestWithASP-NET5Udemy\02_RestWithASPNETUdemy_Calculadora\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+F:\Projetos\RestWithASP-NET5Udemy\RestWithASP-NET5Udemy\02_RestWithASPNETUdemy_Calculadora\RestWithASPNETUdemy\RestWithASPNETUdemy\obj\Debug\net5.0\RestWithASPNETUdemy.csproj.CopyComplete
+F:\Projetos\RestWithASP-NET5Udemy\RestWithASP-NET5Udemy\02_RestWithASPNETUdemy_Calculadora\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Versioning.dll
+F:\Projetos\RestWithASP-NET5Udemy\RestWithASP-NET5Udemy\02_RestWithASPNETUdemy_Calculadora\RestWithASPNETUdemy\RestWithASPNETUdemy\obj\Debug\net5.0\RestWithASPNETUdemy.MvcApplicationPartsAssemblyInfo.cs
