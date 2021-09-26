@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+  rest-with-asp-net-udemy:
+    image: rest-with-asp-net-udemy:dev
+    container_name: RestWithASPNETUdemy
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "RestWithASPNETUdemy"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_rest-with-asp-net-udemy$
+    volumes:
+      - F:\Projetos\RestWithASP-NET5Udemy\RestWithASP-NET5Udemy\02_RestWithASPNETUdemy_Calculadora\RestWithASPNETUdemy\RestWithASPNETUdemy:/app
+      - F:\Projetos\RestWithASP-NET5Udemy\RestWithASP-NET5Udemy\02_RestWithASPNETUdemy_Calculadora\RestWithASPNETUdemy:/src
+      - C:\Users\erroc\vsdbg\vs2017u5:/remote_debugger:rw
+#$nuget_volume_mapping_rest-with-asp-net-udemy$
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_rest-with-asp-net-udemy$ \"/app/bin/Debug/net5.0/RestWithASPNETUdemy.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true

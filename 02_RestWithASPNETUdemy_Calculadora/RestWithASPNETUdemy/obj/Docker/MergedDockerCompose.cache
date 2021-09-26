@@ -1,0 +1,36 @@
+networks:
+  udemy-network:
+    driver: bridge
+services:
+  db:
+    environment:
+      MYSQL_DATABASE: rest_with_asp_net_udemy
+      MYSQL_ROOT_PASSWORD: admin123
+    image: rest-with-asp-net-udemy-db
+    networks:
+      udemy-network: null
+    ports:
+    - published: 3308
+      target: 3306
+    restart: always
+    volumes:
+    - datafiles:/var/lib/mysql:rw
+  rest-with-aspnet-udemy:
+    build:
+      context: F:\Projetos\RestWithASP-NET5Udemy\RestWithASP-NET5Udemy\02_RestWithASPNETUdemy_Calculadora\RestWithASPNETUdemy
+      dockerfile: RestWithASPNETUdemy/Dockerfile
+    depends_on:
+      db:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: rest-with-asp-net-udemy
+    networks:
+      udemy-network: null
+    ports:
+    - published: 44300
+      target: 80
+    restart: always
+version: '3.4'
+volumes:
+  datafiles: {}

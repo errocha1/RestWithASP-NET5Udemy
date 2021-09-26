@@ -1,14 +1,12 @@
-﻿using System;
+﻿using RestWithASPNETUdemy.Models.Base;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RestWithASPNETUdemy.Models
 {
     [Table("book")] // Nome da tabela como criado no BD
-    public class Book
+    public class Book : BaseEntity
     {
-        [Column("id")] // Nome da coluna como criado na tabela no BD
-        public int Id { get; set; }
-
         [Column("author")]
         public string Author { get; set; }
 

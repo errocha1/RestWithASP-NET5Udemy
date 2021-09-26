@@ -1,13 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using RestWithASPNETUdemy.Models.Base;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RestWithASPNETUdemy.Models
 {
     [Table("person")] // Nome da tabela como criado no BD
-    public class Person
+    public class Person : BaseEntity
     {
-        [Column("id")] // Nome da coluna como criado na tabela no BD
-        public long Id { get; set; }
-
         [Column("first_name")]
         public string FirstName { get; set; }
 
@@ -19,5 +17,8 @@ namespace RestWithASPNETUdemy.Models
 
         [Column("gender")]
         public string Gender { get; set; }
+
+        [Column("enabled")]
+        public bool Enabled { get; set; }
     }
 }

@@ -1,41 +1,49 @@
-﻿using RestWithASPNETUdemy.Models;
-using RestWithASPNETUdemy.Repository;
+﻿using RestWithASPNETUdemy.Data.Converter.Implementations;
+using RestWithASPNETUdemy.Data.VO;
+using RestWithASPNETUdemy.Models;
+using RestWithASPNETUdemy.Repository.Generic;
 using System.Collections.Generic;
 
 namespace RestWithASPNETUdemy.Business.Implementations
 {
     public class BookBusinessImplementation : IBookBusiness
     {
-        private readonly IBookRepository _repository;
+        private readonly IRepository<Book> _repository;
+        private readonly BookConverter _converter;
 
-        public BookBusinessImplementation(IBookRepository repository)
+        public BookBusinessImplementation(IRepository<Book> repository)
         {
             _repository = repository;
+            _converter = new BookConverter();
         }
 
-        public List<Book> FindAll()
+        public List<BookVO> FindAll()
         {
-            return _repository.FindAll();
+            return _converter.Parse(_repository.FindAll());
         }
 
-        public Book FindById(int id)
+        public BookVO FindById(long id)
         {
-            return _repository.FindById(id);
+            return _converter.Parse(_repository.FindByID(id));
         }
 
-        public Book Create(Book book)
+        public BookVO Create(BookVO book)
         {
-            return _repository.Create(book);
+            var bookEntity = _converter.Parse(book); // Converte um VO para uma Entidade
+            bookEntity = _repository.Create(bookEntity);
+            return _converter.Parse(bookEntity); // Converte uma Entidade para VO 
         }
 
-        public void Delete(int id)
+        public BookVO Update(BookVO book)
+        {
+            var bookEntity = _converter.Parse(book); // Converte um VO para uma Entidade
+            bookEntity = _repository.Update(bookEntity);
+            return _converter.Parse(bookEntity); // Converte uma Entidade para VO 
+        }
+
+        public void Delete(long id)
         {
             _repository.Delete(id);
         }
-
-        public Book Update(Book book)
-        {
-            return _repository.Update(book);
-        }
-    }    
+    }  
 }

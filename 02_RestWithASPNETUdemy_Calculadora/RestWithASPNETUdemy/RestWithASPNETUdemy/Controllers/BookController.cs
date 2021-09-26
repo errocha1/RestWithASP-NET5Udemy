@@ -1,13 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using RestWithASPNETUdemy.Models;
 using RestWithASPNETUdemy.Business;
+using RestWithASPNETUdemy.Data.VO;
+using RestWithASPNETUdemy.Hypermedia.Filters;
+using System.Collections.Generic;
 
 namespace RestWithASPNETUdemy.Controllers
 {
     [ApiVersion("1")] // Versão da API
     [ApiController]
-    [Route("api/[controller]/v{version:ApiVersion}")] //Ajuste do caminho + versão
+    [Authorize("Bearer")]
+    [Route("api/[controller]/v{version:apiVersion}")] //Ajuste do caminho + versão
     public class BookController : Controller
     {
         private readonly ILogger<BookController> _logger;
@@ -20,12 +24,22 @@ namespace RestWithASPNETUdemy.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(200, Type = typeof(List<BookVO>))] // Swagger
+        [ProducesResponseType(204)] // Swagger
+        [ProducesResponseType(400)] // Swagger
+        [ProducesResponseType(401)] // Swagger
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {
             return Ok(_bookBusiness.FindAll());
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(200, Type = typeof(BookVO))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(int Id)
         {
             var book = _bookBusiness.FindById(Id);
@@ -35,7 +49,11 @@ namespace RestWithASPNETUdemy.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] Book book)
+        [ProducesResponseType(200, Type = typeof(BookVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Create([FromBody] BookVO book)
         {
             if (book == null) return BadRequest();
 
@@ -43,7 +61,11 @@ namespace RestWithASPNETUdemy.Controllers
         }
 
         [HttpPut]
-        public IActionResult Update([FromBody] Book book)
+        [ProducesResponseType(200, Type = typeof(BookVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Update([FromBody] BookVO book)
         {
             if (book == null) return BadRequest();
 
@@ -51,6 +73,9 @@ namespace RestWithASPNETUdemy.Controllers
         }
 
         [HttpDelete("{Id}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Delete(int Id)
         {
             _bookBusiness.Delete(Id);
