@@ -83,7 +83,7 @@ namespace RestWithASPNETUdemy
                     .RequireAuthenticatedUser().Build());
             });
 
-            // Habilitando o Cors p não dar problema de consumo de plataformas cruzadas
+            // Habilitando o Cors p nÃ£o dar problema de consumo de plataformas cruzadas
             services.AddCors(options => options.AddDefaultPolicy(builder =>
             {
                 builder.AllowAnyOrigin()
@@ -93,7 +93,7 @@ namespace RestWithASPNETUdemy
 
             services.AddControllers();
 
-            //Conexão com banco de dados
+            //ConexÃ£o com banco de dados
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
 
             services.AddDbContext<MySqlContext>(o => o.UseMySql(connection, MySqlServerVersion.LatestSupportedServerVersion));
@@ -104,7 +104,7 @@ namespace RestWithASPNETUdemy
             //    //MigrateDatabase(connection);
             //}
 
-            // Para aplicação portar tanto Json quanto XML, pode ser incluído CSV e outros
+            // Para aplicaÃ§Ã£o portar tanto Json quanto XML, pode ser incluÃ­do CSV e outros
             services.AddMvc(options =>
             {
                 options.RespectBrowserAcceptHeader = true;
@@ -123,14 +123,14 @@ namespace RestWithASPNETUdemy
             // Versionador de API
             services.AddApiVersioning();
 
-            // Inclusão do Swagger
+            // InclusÃ£o do Swagger
             services.AddSwaggerGen(c=> {
                 c.SwaggerDoc("v1",
                 new OpenApiInfo
                 {
-                    Title = "REST API's RESTFul do 0 à Azure com ASP.NET Core 5 e Docker",
+                    Title = "REST API's RESTFul do 0 Ã  Azure com ASP.NET Core 5 e Docker",
                     Version = "v1",
-                    Description = "API REstful developed in course 'REST API's RESTFul do 0 à Azure com ASP.NET Core 5 e Docker'",
+                    Description = "API REstful developed in course 'REST API's RESTFul do 0 Ã  Azure com ASP.NET Core 5 e Docker'",
                     Contact = new OpenApiContact
                     {
                         Name = "Eduardo Rocha",
@@ -139,7 +139,7 @@ namespace RestWithASPNETUdemy
                 });            
             });
 
-            // Injeção de dependência
+            // InjeÃ§Ã£o de dependÃªncia
 
             // Para upload de arquivos
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -170,16 +170,16 @@ namespace RestWithASPNETUdemy
             app.UseRouting();
 
             // Cors, Tem que ficar obrigatoriamente depois de app.UseHttpsRedirection(), app.UseRouting() e antes de app.UseEndpoints
-            // Senão dará erro
+            // SenÃ£o darÃ¡ erro
             app.UseCors();
 
-            // Responsável por gerar o Json com a documentação
+            // ResponsÃ¡vel por gerar o Json com a documentaÃ§Ã£o
             app.UseSwagger();
 
-            // Responsável por gerar a página html
+            // ResponsÃ¡vel por gerar a pÃ¡gina html
             app.UseSwaggerUI(c=> {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json",
-                    "REST API's RESTFul do 0 à Azure com ASP.NET Core 5 e Docker");
+                    "REST API's RESTFul do 0 Ã  Azure com ASP.NET Core 5 e Docker - Full Bar");
             });
 
             // Swagger
