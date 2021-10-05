@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RestWithASPNETUdemy.Models
 {
-    [Table("user")]
+    [Table("users")]
     public class User
     {
         [Key]
